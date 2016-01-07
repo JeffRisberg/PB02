@@ -1,17 +1,24 @@
 package com.incra.tutorial;
 
-import com.incra.tutorial.LeaderboardProtos.*;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import com.incra.tutorial.LeaderboardProtos.Game;
+import com.incra.tutorial.LeaderboardProtos.Leaderboard;
+import com.incra.tutorial.LeaderboardProtos.Player;
+import com.incra.tutorial.LeaderboardProtos.PlayerScore;
 
+import java.io.FileInputStream;
+
+/**
+ * @author Jeff Risberg
+ * @since 01/04/16
+ */
 class DisplayLeaderboard {
   // Iterates though all people in the AddressBook and prints info about them.
-  static void Print(Leaderboard leaderboard) {
+  static void print(Leaderboard leaderboard) {
 
     for (PlayerScore playerScore: leaderboard.getPlayerScoreList()) {
       Player player = playerScore.getPlayer();
-      System.out.println("Player ID: " + player.getId());
+      System.out.println("\nPlayer ID: " + player.getId());
+      System.out.println("Name: " + player.getName());
       System.out.println("Score: " + playerScore.getScore());
     }
   }
@@ -20,7 +27,7 @@ class DisplayLeaderboard {
   //   the information inside.
   public static void main(String[] args) throws Exception {
     if (args.length != 1) {
-      System.err.println("Usage:  DisplayLeaderboard FILE");
+      System.err.println("Usage:  DisplayLeaderboard LEADERBOARD_FILE");
       System.exit(-1);
     }
 
@@ -28,6 +35,9 @@ class DisplayLeaderboard {
     Leaderboard leaderboard =
             Leaderboard.parseFrom(new FileInputStream(args[0]));
 
-    Print(leaderboard);
+    Game game = leaderboard.getGame();
+    System.out.println("For the " + game.getName() + " game:");
+
+    print(leaderboard);
   }
 }

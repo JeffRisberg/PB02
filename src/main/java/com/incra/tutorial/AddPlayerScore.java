@@ -10,9 +10,13 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.PrintStream;
 
+/**
+ * @author Jeff Risberg
+ * @since 01/04/16
+ */
 class AddPlayerScore {
     static PlayerScore PromptForPlayerScore(BufferedReader stdin,
-                                   PrintStream stdout) throws IOException {
+                                            PrintStream stdout) throws IOException {
         Player.Builder player = Player.newBuilder();
 
         stdout.print("Enter person ID: ");
@@ -35,29 +39,40 @@ class AddPlayerScore {
         return playerScore.build();
     }
 
-    // Main function:  Reads the entire address book from a file, adds one person based on
+    // Main function:  Reads the entire leaderboard from a file, adds one playerscore based on
     // user input, then writes it back out to the same file.
     public static void main(String[] args) throws Exception {
         if (args.length != 1) {
-            System.err.println("Usage:  AddPlayerScore ADDRESS_BOOK_FILE");
+            System.err.println("Usage:  AddPlayerScore LEADERBOARD_FILE");
             System.exit(-1);
         }
 
         Leaderboard.Builder leaderboard = Leaderboard.newBuilder();
 
-        // Read the existing address book.
+        // Read the existing leaderboard.
         try {
             FileInputStream input = new FileInputStream(args[0]);
             try {
                 leaderboard.mergeFrom(input);
             } finally {
-                try { input.close(); } catch (Throwable ignore) {}
+                try {
+                    input.close();
+                } catch (Throwable ignore) {
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println(args[0] + ": File not found.  Creating a new file.");
         }
 
-        // Add a playerscore.
+        if (leaderboard.hasGame() == false) {
+            Game.Builder game = Game.newBuilder();
+            game.setId(1);
+            game.setName("Africa Swing");
+
+            leaderboard.setGame(game);
+        }
+
+        // Add a playerScore.
         leaderboard.addPlayerScore(
                 PromptForPlayerScore(new BufferedReader(new InputStreamReader(System.in)),
                         System.out));
