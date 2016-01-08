@@ -1,9 +1,6 @@
 package com.incra.tutorial;
 
-option java_package = "com.incra.tutorial";
-
 option java_outer_classname = "LeaderboardProtos";
-
 
 import "common.proto";
 

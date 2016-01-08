@@ -69,6 +69,7 @@ class AddPlayerScore {
             Game.Builder game = Game.newBuilder();
             game.setId(1);
             game.setName("Africa Swing");
+            game.setType(GameType.SINGLE_PLAYER);
 
             leaderboard.setGame(game);
         }

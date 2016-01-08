@@ -1,9 +1,6 @@
 package com.incra.tutorial;
 
-option java_package = "com.incra.tutorial";
-
 option java_outer_classname = "CommonProtos";
-
 
 enum Action {
   CREATE = 1;

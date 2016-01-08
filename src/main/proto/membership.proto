@@ -1,7 +1,5 @@
 package com.incra.tutorial;
 
-option java_package = "com.incra.tutorial";
-
 option java_outer_classname = "MembershipProtos";
 
 import "common.proto";
