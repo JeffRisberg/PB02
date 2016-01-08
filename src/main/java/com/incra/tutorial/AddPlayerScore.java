@@ -1,5 +1,6 @@
 package com.incra.tutorial;
 
+import com.incra.tutorial.CommonProtos.*;
 import com.incra.tutorial.LeaderboardProtos.*;
 
 import java.io.BufferedReader;
