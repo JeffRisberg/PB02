@@ -22,12 +22,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="PB02" />
         <module name="protobuf-java" />
+      </profile>
+      <profile default="false" name="Annotation profile for PB02" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="PB02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="PB02" target="1.5" />
+      <module name="PB02" target="1.8" />
       <module name="protobuf-java" target="1.5" />
     </bytecodeTargetLevel>
   </component>

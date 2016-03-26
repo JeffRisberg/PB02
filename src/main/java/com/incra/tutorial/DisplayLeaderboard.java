@@ -10,7 +10,7 @@ import java.io.FileInputStream;
  * @since 01/04/16
  */
 class DisplayLeaderboard {
-    // Iterates though all people in the AddressBook and prints info about them.
+    // Iterates though all people in the Leaderboard and prints info about them.
     static void print(Leaderboard leaderboard) {
 
         for (PlayerScore playerScore : leaderboard.getPlayerScoreList()) {

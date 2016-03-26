@@ -16,7 +16,7 @@ class CreateOperation {
     // out to the same file.
     public static void main(String[] args) throws Exception {
         if (args.length != 1) {
-            System.err.println("Usage:  AddPlayerScore OPERATION_FILE");
+            System.err.println("Usage:  CreateOperation OPERATION_FILE");
             System.exit(-1);
         }
 

@@ -15,7 +15,7 @@ class CreateTracking {
     // out to the same file.
     public static void main(String[] args) throws Exception {
         if (args.length != 1) {
-            System.err.println("Usage:  CreateTracking LEADERBOARD_FILE");
+            System.err.println("Usage:  CreateTracking TRACKING_FILE");
             System.exit(-1);
         }
 
