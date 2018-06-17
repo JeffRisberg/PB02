@@ -1,3 +1,5 @@
+syntax = "proto3";
+
 package com.incra.tutorial;
 
 option java_outer_classname = "CommonProtos";
